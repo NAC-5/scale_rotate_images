@@ -12,8 +12,8 @@ if not os.path.exists(output_dir):
 for filename in os.listdir(input_dir):
     if filename.startswith('ic_'):
         file_path = os.path.join(input_dir, filename)
-        new_filename = os.path.splitext(filename)[0] + '.jpeg'
+        new_filename = os.path.splitext(filename)[0] + '.png'
         new_file_path = os.path.join(output_dir, new_filename)
 
         with Image.open(file_path) as img:
-            new_image = img.rotate(270).resize((128, 128)).convert('RGB').save(new_file_path, "JPEG")
+            new_image = img.rotate(270).resize((128, 128)).convert("RGBA").save(new_file_path, "PNG")
